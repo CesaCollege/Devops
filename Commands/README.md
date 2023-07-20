@@ -200,5 +200,142 @@
             - sort -r (reverse the result)
             - sort -u (sort and remove duplicates)        
  
-  
-                   
+ * ## Pipe and Redirect
+   + ### what is redirection ?
+         - definition : the reassignment of channel's file descriptor
+         - every process has three commiunication channels 
+             1. stdout (discriptor value of 1)
+             2. stderr (discriptor value of 2)
+             3. stdin (discriptor value of 3)
+         - the file /dev/null is writable by any user but no data can be recovered from it , as it is not stored anywhere
+   + ### redirection operators
+         1. > (rewrite the content)
+         2. >> (append the content)
+         3. < (read from file)
+         4. << (known as here document . allows to use multi line text for redirection)
+         5. <<< (known as here string . allows to use one line text for redirection)             
+   + ### useful examples of redirection
+         1. cat /proc/cpuinfo > ~/Desktop/cpu.txt
+            - the content in stdout channel of process will be written in cpu.txt
+         2. cat /proc/cpuinfo 2> ~/Desktop/cpu.txt 
+            - only the content written in stderr channel of process will be written in cpu.txt file
+         3. cat /proc/cpuinfo  &> ~/Desktop/cpu.txt 
+            - the content written in both stderr and stdout channels will be written in cpu.txt file
+         4. tr ":" " " <<< "there:we:go"
+            - the output is ""there we go""      
+   + ### what is pipe ?
+          - a pipe connects the output of the previous command to the input of the following command
+          - pipe operator is ""|""
+   + ### a simple example of pipe usage
+           cat temp.txt | grep "radmehr"
+           - output :
+             radmehr:dgjjjb  
+   + ### tee
+          this command saves the output of program in a file and also display it on screen
+          - example :
+            printf "hello\nworld\n" | sed -n s/world/there/p | tee out.txt
+          - output is :
+                  there
+          - content of out.txt is : 
+                  there      
+   + ### xargs
+          this command uses the output of previous command as an argument for following command
+          - example :
+            printf "hello\nworld\n" | xargs -I X 
+          - output is :
+                  there
+          - content of out.txt is :
+                  there    
+
+ * ## Process management
+   + ### jobs
+         - definition :jobs are processes that have been started in background and have not terminated yet
+         - run process in background : add & at the end of the command
+         - suspend a process : ctrl + z
+         - important flags :
+            1. jobs -l (list all jobs)
+            2. jobs %1 (list job with id of 1)
+            3. jobs %sleep (list jobs start with sleep)
+            4. jobs %?sleep (list jobs containing sleep)
+            5. jobs %+ (list the last job started or suspended in background)
+            6. jobs %- (list the one that was before %+)  
+         
+
+   + ### fg
+         - usage : take a job to foreground
+         - example : fg %1 (takes a job with id=1 to foreground)
+   + ### bg
+         - usage : take a job to background (execute a suspended job)
+         - example : bg %1 (execute a suspended job with id = 1 in background) 
+
+   + ### nohup
+         - usage : detach jobs from sessions and have them running even aftyer the session is closed
+         - example : nohup ping localhost > /dev/null &  
+   + ### pgrep or pidof
+         - usage : getting pid of named process 
+         - example : pgrep Telegram 
+         - example : pidof Telegram 
+   + ### pkill
+         - usage : terminate process by name 
+         - example : pkill Telegram   
+   + ### killall
+         - usage : terminate process(s) by name 
+         - example : killall Telegram
+   + ### kill
+         - usage : kill process by pid 
+         - syntax : kill [signal] [pid]
+         - example : kill 7072 (default signal is SIGTERM or 15)
+         - example : kill -9 7071 (force quit , kill -s KILL 7071 is also the same)
+         - kill $(pgrep ping) (command substitution , kill `pgrep ping` is also the same)
+   + ### htop
+         - usage : monitor all processes (dynamiclly)
+         - columns meaning :
+            1. PID : shows process unique id
+            2. USER : user who generated the process
+            3. PRI : priority of process to kernel
+            4. NI : nice value of process (the lower the nice value the higher the priority)
+            5. VIRT : amount of virtual memory being used by process
+            6. RES : RAM memory being used by process
+            7. SHR : shared memory of the process with others
+            8. S : process status (S : waiting for an event to finish , R : running  , Z : zombie)
+            9. %CPU : percentage of cpu usage
+            10. %MEM : percentage of RAM  usage
+            11. TIME+ : uptime of process
+            12. COMMAND : name of the command which generated the process  
+         - load average : cpu unitilization
+            1. first field --> load average in last minute
+            2. second field --> load average in last 5 minutes
+            3. third field --> load average in last 15 minutes   
+
+   + ### ps
+         - usage : monitor all processes (staticlly)
+         - example : ps -aux
+
+ * ## Network Management
+   + ### ifconfig
+         - usage : list information of all network interfaces
+         - how to set ip : ifconfig [interface] [ipAddres] netmask [subnet mask]
+            - example : ifconfig wlo1 192.168.0.220 netmask 255.255.255.0 
+   + ### ping
+         - usage : checks for network connectivity between two nodes by sending ICMP echo requests
+         - exmaple ping 8.8.8.8 (send icmp request until termination)
+         - example ping google.com -w 3 (send only 3 ICMP messages) 
+         - example ping -c 3 google.com (send only 3 ICMP messages) 
+
+   + ### nslookup or dig
+         - usage : domain to ip address
+         - exmaple nslookup github.com
+         - example dig github.com
+
+   + ### curl or wget
+         - usage : download file from command line or api call
+         - exmaple curl -o https://cesacollege.s3.ir-thr-at1.arvanstorage.ir/devops/class_1.zip
+         - example wget https://cesacollege.s3.ir-thr-at1.arvanstorage.ir/devops/class_1.zip
+   + ### ssh
+         - usage : connect to a remote server securly
+         - exmaple : ssh root@10.23.40.30
+         - exmaple : ssh -p 9011 root@10.23.40.30
+   + ### how to change dns ?
+           add the namesever to /etc/resolv.conf
+           in order to revert changes just restart NetworkManager deamon (sudo systemctl restart NetworkManager) 
+      
