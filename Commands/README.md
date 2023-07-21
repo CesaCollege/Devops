@@ -222,7 +222,7 @@
          3. cat /proc/cpuinfo  &> ~/Desktop/cpu.txt 
             - the content written in both stderr and stdout channels will be written in cpu.txt file
          4. tr ":" " " <<< "there:we:go"
-            - the output is ""there we go""      
+            - the output is "there we go"      
    + ### what is pipe ?
           - a pipe connects the output of the previous command to the input of the following command
           - pipe operator is ""|""
@@ -241,11 +241,9 @@
    + ### xargs
           this command uses the output of previous command as an argument for following command
           - example :
-            printf "hello\nworld\n" | xargs -I X 
-          - output is :
-                  there
-          - content of out.txt is :
-                  there    
+            find ~/Desktop -type f -name "*.txt" | xargs wc -l  
+          - the output will the number of lines for each .txt file in Desktop and all its subdirectories
+              
 
  * ## Process management
    + ### jobs
@@ -269,7 +267,7 @@
          - example : bg %1 (execute a suspended job with id = 1 in background) 
 
    + ### nohup
-         - usage : detach jobs from sessions and have them running even aftyer the session is closed
+         - usage : detach jobs from sessions and have them running even after the session is closed
          - example : nohup ping localhost > /dev/null &  
    + ### pgrep or pidof
          - usage : getting pid of named process 
