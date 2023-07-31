@@ -6,4 +6,3 @@ printf "give me a csv line\n"
 read csvline
 ans=`echo $csvline | cut -d "," -f $number`
 echo $ans
-
