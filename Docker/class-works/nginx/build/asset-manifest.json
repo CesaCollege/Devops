@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6de91837.css",
+    "main.js": "/static/js/main.2f00ba15.js",
+    "static/media/02.jpg": "/static/media/02.7df14e12e444ad660802.jpg",
+    "static/media/03.jpg": "/static/media/03.ba5f8794c055cc1488b5.jpg",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.e615bbcb258550973c16.ttf",
+    "static/media/01.jpg": "/static/media/01.6ac85de7298319b1f8d5.jpg",
+    "static/media/room2.png": "/static/media/room2.b96f4cea4c93262fff35.png",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.b823fc0dbb5a5f0c21bb.ttf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.59edf72a325ac2048d60.woff2",
+    "static/media/main2.png": "/static/media/main2.558af8a0902ab195ab40.png",
+    "static/media/home.png": "/static/media/home.c3e432f402c724fe372b.png",
+    "static/media/task2.png": "/static/media/task2.39022bb79b52c36e6f0c.png",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.ebb7a127d2d8ee6f1832.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.0d03b1bbd1d62c1e1284.ttf",
+    "static/media/04.jpg": "/static/media/04.35463172278c4051b5f4.jpg",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.0caf4c6cf244a90efcc5.woff2",
+    "static/media/empty-girl-box.svg": "/static/media/empty-girl-box.418d47d08daaf3520f1eb76deb141696.svg",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.4baccb548138840fa33a.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.afac89562a5301459069.woff2",
+    "static/media/spotify.svg": "/static/media/spotify.8f6003301c711b4fe3bc3f601cc110b8.svg",
+    "static/media/paypal.svg": "/static/media/paypal.2a7be383aae46294cfc76c258d7f3de8.svg",
+    "static/media/amazon.svg": "/static/media/amazon.b99a7cc44be45747096d49c9cb2ffe77.svg",
+    "static/media/shopify.svg": "/static/media/shopify.a3ea771201c81cd264d5a55f469adc96.svg",
+    "static/media/google.svg": "/static/media/google.fc295ce963de13e6f58e4934f288298f.svg",
+    "static/media/lenovo.svg": "/static/media/lenovo.b0f22f8b71ec4c51e6a8e2b10a85b998.svg",
+    "static/media/app-logo.svg": "/static/media/app-logo.d673b44dce322dd10a3e75b5e190facb.svg",
+    "static/media/app-logo-white.svg": "/static/media/app-logo-white.1abb3a0dfda3daed2ce8861218454f3e.svg",
+    "index.html": "/index.html",
+    "static/media/index.cjs": "/static/media/index.cd351d7c31d0d3fccf96.cjs",
+    "main.6de91837.css.map": "/static/css/main.6de91837.css.map",
+    "main.2f00ba15.js.map": "/static/js/main.2f00ba15.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6de91837.css",
+    "static/js/main.2f00ba15.js"
+  ]
+}
