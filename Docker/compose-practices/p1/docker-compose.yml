@@ -1,0 +1,7 @@
+version: '3.8' 
+services:
+  api:
+    build: ./api
+    container_name: p1-api
+    networks:
+      - p1-net
