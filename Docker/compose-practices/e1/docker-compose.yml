@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web1:
+    image: nginx:1.25.1
+    container_name: web11
+    restart: on-failure:3
+    ports:
+      - 8080:80 
+    networks:
+      - compose-net
+
+  web2:
+    image: nginx:1.25.1
+    container_name: web22
+    restart: on-failure
+    ports:
+      - 8081:80 
+    networks:
+      - compose-net
+  db1:
+    image: postgres:15.2-alpine
+    container_name: composedb1
+    restart: always
+    environment:
+      POSTGRES_USER: you
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: temp
+    networks:
+      - compose-net
+    volumes:
+      - first-vol:/var/lib/postgresql/data
+    depends_on:
+      - web1
+
+
+networks:
+  compose-net:
+
+volumes:
+  first-vol:
