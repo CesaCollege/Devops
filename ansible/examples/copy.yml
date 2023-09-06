@@ -1,0 +1,15 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+    - name: copy files
+      copy:
+        src: a.txt
+        dest: ~/first-copy/
+        owner: root
+        group: root
+        mode: 0740
+    # - name: delete trashes
+    #   file:
+    #     path: ~/first-copy/
+    #     state: absent

@@ -1,0 +1,19 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+    - name: update repositories
+      yum:
+        update_cache: true
+    - name: installing nano
+      yum:
+        name:
+         - nano
+         - vim
+        state: installed
+      when: ansible_distribution in ["CentOS" , "ubuntu"] 
+
+    - name: upgrade packages
+      yum:
+        name: '*'
+        state: latest

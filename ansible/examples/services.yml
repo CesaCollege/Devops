@@ -1,0 +1,13 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+    - name: install apache
+      yum:
+        name: httpd
+        state: absent
+    # - name: setup apache after booting up
+    #   service:
+    #     name: httpd
+    #     state: started
+    #     enabled: true

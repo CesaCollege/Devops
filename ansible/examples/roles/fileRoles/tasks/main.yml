@@ -1,0 +1,5 @@
+- name: installing fileservers requirements
+  tags: ubuntu,ubuntu2204
+  yum:
+    name: samba
+    state: present

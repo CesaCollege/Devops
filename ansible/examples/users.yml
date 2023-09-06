@@ -1,0 +1,24 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+    - name: create user
+      user:
+        name: temp2
+        password: "$6$2SrC6i5uEUjZ39zA$uaQLBi5D6jSJsWo/px3V7B7z.Ar1c.v5z.PHrMbVJQmy6.fZZ5Gq4eaJ/SV3brizIsLuv/pIJGgJ9qnEPD/wa0"
+    - name: add ssh key for temp2
+      authorized_key:
+        user: temp2
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYdohcrTqZgND5w9ghdVDJjHnd/IBp/Q1rzHcV51eSG sobi@computer"
+    - name: admin premission
+      copy:
+        src: temp2_sudo
+        dest: /etc/sudoers.d/temp2
+        owner: root
+        group: root
+        mode: 0640
+    # - name: delete user
+    #   user:
+    #     name: temp
+    #     state: absent
+    #     remove: yes

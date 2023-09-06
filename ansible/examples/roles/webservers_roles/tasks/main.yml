@@ -1,0 +1,7 @@
+- name: installing webserver requirements
+  tags: ubuntu,ubuntu2204,centos,centos7
+  yum:
+    name:
+      - curl
+      - wget
+    state: present

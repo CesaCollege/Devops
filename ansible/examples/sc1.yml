@@ -1,0 +1,21 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+    - name: update pcakages
+      tags: always
+      package:
+        name: '*'
+        state: latest
+ - hosts: webservers
+   become: true
+   roles:
+    - webservers_roles
+ - hosts: databases
+   become: true
+   roles:
+    - dbRoles
+ - hosts: fileservers
+   become: true
+   roles:
+    - fileRoles

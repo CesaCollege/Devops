@@ -1,0 +1,5 @@
+- name: installing databases requirements
+  tags: centos,centos7
+  yum:
+    name: sqlite
+    state: present
